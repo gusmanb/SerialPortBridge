@@ -18,8 +18,7 @@ If you did a full installation the `Com0com path` setting can be left empty and 
 
 ### Run as daemon in Raspberry/Raspbian
 
-Copy the `install_daemon.sh` script to the folder where you have installed the serial host
-Change it's permissions to executable: `sudo chmod 777 install_daemon.sh`
-Execute: `sudo install_daemon.sh`
-
-Reboot
+1. Copy the `install_daemon.sh` script to the folder where you have installed the serial host
+2. Change it's permissions to executable: `sudo chmod 777 install_daemon.sh`
+3. Execute: `sudo install_daemon.sh`
+4. Reboot

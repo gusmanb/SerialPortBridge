@@ -34,9 +34,9 @@ If you did a full installation the `Com0com path` setting can be left empty and 
 An usage example
 
 - Connected a CNC to the Raspberry, it creates the ttyUSB0 port.
-- Configured server as 192.168.1.10 9025
+- Configured the Serial Manager server as 192.168.1.10 9025
 - Created pair COM2<->COM3
-- Created bridge ttyUSB0<->COM3 with 115200 bauds
+- Created bridge COM3<->ttyUSB0 with 115200 bauds
 - On GrblControl CNC is configured to use COM2 at 115200 bauds
 
 Now GrblControl will control the remote CNC.

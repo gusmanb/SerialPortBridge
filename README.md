@@ -25,6 +25,6 @@ sudo ./SerialLinuxHost daemon &
 
 Change permissions as executable: `chmod 777 daemon`
 
-Edit rc.local and add `(path_where_server_is_installed)/daemon` before `exit 0`
+Edit `/etc/rc.local` and add `(path_where_server_is_installed)/daemon` before `exit 0`
 
 Reboot

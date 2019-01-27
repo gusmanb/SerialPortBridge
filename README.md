@@ -13,7 +13,7 @@ Ready!
 
 ### Windows requirements
 
-You must install [com0m] (https://sourceforge.net/projects/com0com/)
+You must install [com0m](https://sourceforge.net/projects/com0com/)
 If you did a full installation the `Com0com path` setting can be left empty and the client will locate it
 
 ### Run as daemon in Linux

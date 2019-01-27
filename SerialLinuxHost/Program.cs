@@ -33,7 +33,10 @@ namespace SerialLinuxHost
 
             Console.WriteLine("Server running on port 9025, press Q to quit");
 
-            while (Console.ReadKey().Key != ConsoleKey.Q) ;
+            if (args.Length == 1 && args[0] == "daemon")
+                System.Threading.Thread.Sleep(-1);
+            else
+                while (Console.ReadKey().Key != ConsoleKey.Q) ;
 
             Console.WriteLine("Bye!");
 

@@ -16,20 +16,10 @@ Ready!
 You must install [com0com](https://sourceforge.net/projects/com0com/).
 If you did a full installation the `Com0com path` setting can be left empty and the client will locate it
 
-### Run as daemon in Linux
+### Run as daemon in Raspberry/Raspbian
 
-Create a file called `daemon` wherever you have installed the server
-Add this script:
-
-```
-#!/bin/bash
-
-cd (path_where_server_is_installed)
-sudo ./SerialLinuxHost daemon &
-```
-
-Change permissions as executable: `chmod 777 daemon`
-
-Edit `/etc/rc.local` and add `(path_where_server_is_installed)/daemon` before `exit 0`
+Copy the `install_daemon.sh` script to the folder where you have installed the serial host
+Change it's permissions to executable: `sudo chmod 777 install_daemon.sh`
+Execute: `sudo install_daemon.sh`
 
 Reboot

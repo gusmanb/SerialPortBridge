@@ -4,10 +4,10 @@ Small set of tools to connect serial ports from a Raspberry to a Windows machine
 
  ### Compilation:
 
-1- Open solution in VS, compile the SerialClient.
-2- Open a command line console and execute the `publish.bat` file under SerialLinuxHost, it will create the publication of the server for the Raspberry.
-3- Copy `BaudSetter.c` wherever you have installed the server publication
-4- Compile with `gcc -o BaudSetter BaudSetter.c`
+1. Open solution in VS, compile the SerialClient.
+2. Open a command line console and execute the `publish.bat` file under SerialLinuxHost, it will create the publication of the server for the Raspberry.
+3. Copy `BaudSetter.c` wherever you have installed the server publication
+4. Compile with `gcc -o BaudSetter BaudSetter.c`
 
 Ready!
 

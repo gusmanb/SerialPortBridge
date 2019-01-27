@@ -19,10 +19,14 @@ namespace SerialManager
 {
     public partial class MainForm : Form
     {
+        public string[] Arguments { get; set; }
+
         BridgeManager bridgeManager;
         Configuration config;
         PortPairManager manager;
         BridgeStatus bridgeSelected;
+
+        bool cancelClose = true;
 
         public MainForm()
         {
@@ -39,6 +43,7 @@ namespace SerialManager
             txtServer.Text = config.Server?.ToString() ?? "";
             txtPort.Text = config.Port != 0 ? config.Port.ToString() : "";
             txtCom0com.Text = config.Com0comPath ?? "";
+            ckStartup.Checked = config.RunOnStartup;
 
             if (bridgeManager != null)
                 bridgeManager.Dispose();
@@ -262,7 +267,7 @@ namespace SerialManager
             bridgeSelected = sender as BridgeStatus;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnSave_Click(object sender, EventArgs e)
         {
             IPAddress server;
             int port;
@@ -279,7 +284,7 @@ namespace SerialManager
                 return;
             }
 
-            if (!string.IsNullOrWhiteSpace(txtCom0com.Text) && !Directory.Exists(txtCom0com.Text))
+            if (!string.IsNullOrWhiteSpace(txtCom0com.Text) && (!Directory.Exists(txtCom0com.Text) || !File.Exists(Path.Combine(txtCom0com.Text, "setupc.exe"))))
             {
                 MessageBox.Show("Invalid Com0com path");
                 return;
@@ -288,6 +293,8 @@ namespace SerialManager
             config.Server = server;
             config.Port = port;
             config.Com0comPath = txtCom0com.Text;
+            config.RunOnStartup = ckStartup.Checked;
+
             config.Save();
 
             ApplyConfig();
@@ -308,6 +315,62 @@ namespace SerialManager
                 config.Save();
                 RefreshBridges();
             }
+        }
+
+        private void btnSelPath_Click(object sender, EventArgs e)
+        {
+            using (FolderBrowserDialog dlg = new FolderBrowserDialog())
+            {
+                if (dlg.ShowDialog() != DialogResult.OK)
+                    return;
+
+                txtCom0com.Text = dlg.SelectedPath;
+            }
+        }
+
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (cancelClose)
+            {
+                e.Cancel = true;
+                WindowState = FormWindowState.Minimized;
+                Visible = false;
+            }
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            Task.Run(async () =>
+            {
+                await Task.Delay(1000);
+                BeginInvoke((MethodInvoker) (() =>
+                {
+                    if (Arguments != null && Arguments.Length > 0 && Arguments[0] == "tray")
+                        this.Close();
+                }));
+            });
+        }
+
+        private void niIcon_DoubleClick(object sender, EventArgs e)
+        {
+            Visible = true;
+            WindowState = FormWindowState.Normal;
+            BringToFront();
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Are you sure?", "Close Serial Manager", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                cancelClose = false;
+                this.Close();
+            }
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.cancelClose = false;
+            this.Close();
         }
     }
 }

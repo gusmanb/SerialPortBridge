@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using Microsoft.Win32;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -6,6 +7,7 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace SerialManager.Classes
 {
@@ -15,6 +17,25 @@ namespace SerialManager.Classes
         public int Port { get; set; }
         public string Com0comPath { get; set; }
         public List<PortBridgeConfig> Bridges { get; set; } = new List<PortBridgeConfig>();
+
+        public bool RunOnStartup
+        {
+            get
+            {
+                RegistryKey rk = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true);
+                return rk.GetValue("SerialManager", null) != null;
+            }
+
+            set
+            {
+                RegistryKey rk = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true);
+
+                if (value)
+                    rk.SetValue("SerialManager", Application.ExecutablePath + " tray");
+                else
+                    rk.DeleteValue("SerialManager", false);
+            }
+        }
 
         static JsonSerializerSettings settings;
 

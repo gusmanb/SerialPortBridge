@@ -35,6 +35,9 @@
   <PropertyGroup>
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>favicon.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="NeoSmart.AsyncLock, Version=0.3.0.2, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\NeoSmart.AsyncLock.0.3.0.2\lib\net45\NeoSmart.AsyncLock.dll</HintPath>
@@ -116,6 +119,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Images\serial.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\remote_serial.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\remote_serial_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\linked_serial_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="favicon.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

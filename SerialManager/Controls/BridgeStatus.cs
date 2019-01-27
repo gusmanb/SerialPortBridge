@@ -72,7 +72,7 @@ namespace SerialManager.Controls
 
         public void Deselect()
         {
-            BackColor = SystemColors.Control;
+            BackColor = Color.Transparent;
         }
 
         public void ActivityA()
@@ -235,7 +235,7 @@ namespace SerialManager.Controls
         private void Control_Click(object sender, EventArgs e)
         {
             Select();
-            this.BackColor = SystemColors.Highlight;
+            this.BackColor = SystemColors.ControlLight;
 
             if (Selected != null)
                 Selected(this, EventArgs.Empty);

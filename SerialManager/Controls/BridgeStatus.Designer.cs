@@ -31,7 +31,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.pnlConnected = new System.Windows.Forms.Panel();
-            this.pbDisconnected = new System.Windows.Forms.PictureBox();
             this.pbActPortA3 = new System.Windows.Forms.PictureBox();
             this.pbActPortA2 = new System.Windows.Forms.PictureBox();
             this.pbActPortB3 = new System.Windows.Forms.PictureBox();
@@ -40,7 +39,7 @@
             this.pbActPortB1 = new System.Windows.Forms.PictureBox();
             this.pbActPortA1 = new System.Windows.Forms.PictureBox();
             this.pbPortA = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pbDisconnected)).BeginInit();
+            this.pbDisconnected = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbActPortA3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbActPortA2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbActPortB3)).BeginInit();
@@ -49,11 +48,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbActPortB1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbActPortA1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbPortA)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbDisconnected)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
-            this.label1.Location = new System.Drawing.Point(3, 24);
+            this.label1.Location = new System.Drawing.Point(4, 37);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(67, 18);
             this.label1.TabIndex = 6;
@@ -63,7 +63,7 @@
             // 
             // label2
             // 
-            this.label2.Location = new System.Drawing.Point(137, 24);
+            this.label2.Location = new System.Drawing.Point(148, 37);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(67, 18);
             this.label2.TabIndex = 7;
@@ -74,28 +74,17 @@
             // pnlConnected
             // 
             this.pnlConnected.BackColor = System.Drawing.Color.Black;
-            this.pnlConnected.Location = new System.Drawing.Point(27, 12);
+            this.pnlConnected.Location = new System.Drawing.Point(34, 19);
             this.pnlConnected.Name = "pnlConnected";
             this.pnlConnected.Size = new System.Drawing.Size(150, 2);
             this.pnlConnected.TabIndex = 14;
             this.pnlConnected.Visible = false;
             this.pnlConnected.Click += new System.EventHandler(this.Control_Click);
             // 
-            // pbDisconnected
-            // 
-            this.pbDisconnected.Image = global::SerialManager.Properties.Resources.Disconnected;
-            this.pbDisconnected.Location = new System.Drawing.Point(48, 7);
-            this.pbDisconnected.Name = "pbDisconnected";
-            this.pbDisconnected.Size = new System.Drawing.Size(108, 12);
-            this.pbDisconnected.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pbDisconnected.TabIndex = 15;
-            this.pbDisconnected.TabStop = false;
-            this.pbDisconnected.Click += new System.EventHandler(this.Control_Click);
-            // 
             // pbActPortA3
             // 
             this.pbActPortA3.Image = global::SerialManager.Properties.Resources._10101;
-            this.pbActPortA3.Location = new System.Drawing.Point(120, 2);
+            this.pbActPortA3.Location = new System.Drawing.Point(127, 9);
             this.pbActPortA3.Name = "pbActPortA3";
             this.pbActPortA3.Size = new System.Drawing.Size(24, 8);
             this.pbActPortA3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -107,7 +96,7 @@
             // pbActPortA2
             // 
             this.pbActPortA2.Image = global::SerialManager.Properties.Resources._10101;
-            this.pbActPortA2.Location = new System.Drawing.Point(94, 2);
+            this.pbActPortA2.Location = new System.Drawing.Point(101, 9);
             this.pbActPortA2.Name = "pbActPortA2";
             this.pbActPortA2.Size = new System.Drawing.Size(24, 8);
             this.pbActPortA2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -119,7 +108,7 @@
             // pbActPortB3
             // 
             this.pbActPortB3.Image = global::SerialManager.Properties.Resources._10101;
-            this.pbActPortB3.Location = new System.Drawing.Point(61, 16);
+            this.pbActPortB3.Location = new System.Drawing.Point(68, 23);
             this.pbActPortB3.Name = "pbActPortB3";
             this.pbActPortB3.Size = new System.Drawing.Size(24, 8);
             this.pbActPortB3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -131,7 +120,7 @@
             // pbActPortB2
             // 
             this.pbActPortB2.Image = global::SerialManager.Properties.Resources._10101;
-            this.pbActPortB2.Location = new System.Drawing.Point(87, 16);
+            this.pbActPortB2.Location = new System.Drawing.Point(94, 23);
             this.pbActPortB2.Name = "pbActPortB2";
             this.pbActPortB2.Size = new System.Drawing.Size(24, 8);
             this.pbActPortB2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -142,11 +131,11 @@
             // 
             // pbPortB
             // 
-            this.pbPortB.Image = global::SerialManager.Properties.Resources.serial;
-            this.pbPortB.Location = new System.Drawing.Point(153, 5);
+            this.pbPortB.Image = global::SerialManager.Properties.Resources.remote_serial_32;
+            this.pbPortB.Location = new System.Drawing.Point(165, 4);
             this.pbPortB.Margin = new System.Windows.Forms.Padding(12);
             this.pbPortB.Name = "pbPortB";
-            this.pbPortB.Size = new System.Drawing.Size(32, 16);
+            this.pbPortB.Size = new System.Drawing.Size(32, 32);
             this.pbPortB.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pbPortB.TabIndex = 8;
             this.pbPortB.TabStop = false;
@@ -155,7 +144,7 @@
             // pbActPortB1
             // 
             this.pbActPortB1.Image = global::SerialManager.Properties.Resources._10101;
-            this.pbActPortB1.Location = new System.Drawing.Point(113, 16);
+            this.pbActPortB1.Location = new System.Drawing.Point(120, 23);
             this.pbActPortB1.Name = "pbActPortB1";
             this.pbActPortB1.Size = new System.Drawing.Size(24, 8);
             this.pbActPortB1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -167,7 +156,7 @@
             // pbActPortA1
             // 
             this.pbActPortA1.Image = global::SerialManager.Properties.Resources._10101;
-            this.pbActPortA1.Location = new System.Drawing.Point(68, 2);
+            this.pbActPortA1.Location = new System.Drawing.Point(75, 9);
             this.pbActPortA1.Name = "pbActPortA1";
             this.pbActPortA1.Size = new System.Drawing.Size(24, 8);
             this.pbActPortA1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -178,15 +167,26 @@
             // 
             // pbPortA
             // 
-            this.pbPortA.Image = global::SerialManager.Properties.Resources.serial;
-            this.pbPortA.Location = new System.Drawing.Point(20, 5);
+            this.pbPortA.Image = global::SerialManager.Properties.Resources.linked_serial_32;
+            this.pbPortA.Location = new System.Drawing.Point(21, 4);
             this.pbPortA.Margin = new System.Windows.Forms.Padding(12);
             this.pbPortA.Name = "pbPortA";
-            this.pbPortA.Size = new System.Drawing.Size(32, 16);
+            this.pbPortA.Size = new System.Drawing.Size(32, 32);
             this.pbPortA.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pbPortA.TabIndex = 0;
             this.pbPortA.TabStop = false;
             this.pbPortA.Click += new System.EventHandler(this.Control_Click);
+            // 
+            // pbDisconnected
+            // 
+            this.pbDisconnected.Image = global::SerialManager.Properties.Resources.Disconnected;
+            this.pbDisconnected.Location = new System.Drawing.Point(55, 14);
+            this.pbDisconnected.Name = "pbDisconnected";
+            this.pbDisconnected.Size = new System.Drawing.Size(108, 12);
+            this.pbDisconnected.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pbDisconnected.TabIndex = 15;
+            this.pbDisconnected.TabStop = false;
+            this.pbDisconnected.Click += new System.EventHandler(this.Control_Click);
             // 
             // BridgeStatus
             // 
@@ -204,12 +204,11 @@
             this.Controls.Add(this.pbPortA);
             this.Controls.Add(this.pnlConnected);
             this.Controls.Add(this.pbDisconnected);
-            this.MaximumSize = new System.Drawing.Size(209, 44);
-            this.MinimumSize = new System.Drawing.Size(209, 44);
+            this.MaximumSize = new System.Drawing.Size(216, 58);
+            this.MinimumSize = new System.Drawing.Size(216, 58);
             this.Name = "BridgeStatus";
-            this.Size = new System.Drawing.Size(209, 44);
+            this.Size = new System.Drawing.Size(216, 58);
             this.Click += new System.EventHandler(this.Control_Click);
-            ((System.ComponentModel.ISupportInitialize)(this.pbDisconnected)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbActPortA3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbActPortA2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbActPortB3)).EndInit();
@@ -218,6 +217,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbActPortB1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbActPortA1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbPortA)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbDisconnected)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
